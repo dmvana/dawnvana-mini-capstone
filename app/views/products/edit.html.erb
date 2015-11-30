@@ -1,0 +1,17 @@
+ <h1>Update the product:</h1> 
+ <%= form_tag "/products/#{@.id}", method: :patch do %>
+  <div class="form-group">
+    <%= label_tag :input_name %>
+    <%= text_field_tag :input_name, @product.name, class: "form-control" %>
+  </div>
+  <div>
+    <%= label_tag :input_price %>
+    <%= text_field_tag :input_price, @product.price, class: "form-control" %>
+  </div>
+  <div>
+    <% label_tag :input_description, @product.description, class: "form-control" 
+  </div>
+  <div>
+    <%= button_tag 'Send', class: "btn btn-default" %>
+  </div>
+ <% end %>
