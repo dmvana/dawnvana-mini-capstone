@@ -31,10 +31,11 @@
             <li><a href="/products?sort=price&sort_order=asc">Sort by price (low to high)</a></li>
             <li><a href="/products?sort=price&sort_order=desc">Sort by price (high to low) </a></li>
             <li><a href="/products?discount=true"> Discount items</a></li>
+            <li><a href="/products?= Luxury">Luxury</a></li>
+            <% Category.all.each do |category| %>
+              <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
+            <% end %>
             <li class="divider"></li>
-            <% Category.all.each do |caegory| %>
-              <li><a href="/products?category=%>"><%=category.name %></a></li>
-              <% end %>
             <li><a href="/users/sign_up"> Sign Up</a></li>
             <li><a href="users/sign_in"> Sign In </a></li>
             <li><%= link_to "Sign Out", "users/sign_out", method: :delete %></li>

@@ -10,37 +10,19 @@
         <p> Total: <%= number_to_currency(@product.total) %></p>
         <%= form_tag '/orders', method: :post do %>
           <div>
-            <%= label_tag :quantity %>
-            <%= text_field_tag :quantity %>
+            <%= label_tag :form_input_quantity, "Quantity:" %>
+            <%= text_field_tag :form_input_quantity %>
+            <%= hidden_field_tag :form_input_product_id, @product.id %>
             <%= submit_tag "Place order!" %>
           </div>
         <% end %>
         <% @product.images.each do |image_object| %>
           <img src="<%= image_object.path %>" alt="<%= @product.name %>" class="img-responsive">
-          <% end %>
-        <%= form_tag '/orders', method: :post do %>
-        <div>
-            <%=label_tag :form_input_quantity, "Quantity:" %>
-            <%=text_field_tag :form_input_quantity %>
-            <%= label_tag :form_input_product_id, "Please don't change this number: " %>
-            <%= text_field_tag :form_input_product_id, @product.id %>
-            <%= hidden_field_tag :form_input_product_id, @product.id %>
-            <%=submit_tag "Place order!" %>
-          </div>
         <% end %>
-<%= link_to "Edit this product", "/products/#{@product.id}/edit"%>
-<%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %>
-<%= link_to "Back to all products", "/products"%> 
-<h1> Create a product:</h1>
-<%= form_tag '/products', method: :post do %>
-  <div class="form-group">
-     <%= label_tag :quantity %>
-     <%= text_field_tag(:quantity, nil, class: "form-control", placeholder: " " %>
+        <%= link_to "Edit this product", "/products/#{@product.id}/edit" %>
+        <%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %>
+        <%= link_to "Back to all products", "/products" %> 
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-     <%= label_tag :product_id %>
-     <%= text_field_tag(:product_id, nil, class: "form-control", placeholder: " " %>
-  </div>
-  <div>
-      <%=button_tag 'Buy Now!', class: "btn btn-default" %>
-  </div> 
+</section>

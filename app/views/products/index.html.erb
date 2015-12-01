@@ -1,21 +1,20 @@
-<%=form_tag "/search", method: :post do %>
-  <%=label_tag :input_search %>
-  <%=text_field_tag :input_search %>
-  <%=submit_tag "Search" %>
+<%= form_tag "/search", method: :post do %>
+  <%= label_tag :input_search %>
+  <%= text_field_tag :input_search %>
+  <%= submit_tag "Search" %>
 <% end %>  
 
 <div class="row">
   <% @products.each do |product| %>
-     <div class="col-md-3"> 
-       <div class="well"> 
+    <div class="col-md-3"> 
+      <div class="well"> 
         <h2><%= link_to product.name, "/products/#{product.id}" %></h2>
         <h3><%= product.supplier.name if product.supplier %></h3> 
-        <h3> Price : <%= product.price %></h3>
-        <p> Description : <%= product.description %></p>
-        <p> Product id: <%= product.id %></p> 
-        <a href="/products/<%= taco.id %>" title="View Taco"><img src="<%= taco.images.first.path if taco.images.first %>" alt="<%= taco.name %>" class="img-responsive taco_single_image"></a>
-        <% end %>
+        <h3>Price: <%= product.price %></h3>
+        <p>Description: <%= product.description %></p>
+        <p>Product id: <%= product.id %></p> 
+        <a href="/products/<%= product.id %>" title="View product"><img src="<%= product.images.first.path if product.images.first %>" alt="<%= product.name %>" class="img-responsive"></a>
       </div> 
     </div>  
- <% end %>
+  <% end %>
 </div>

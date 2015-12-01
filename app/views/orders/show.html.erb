@@ -1,6 +1,10 @@
-<h1> Your order information:</h1>
-<h2> Order quantity:<%= @order.quantity%></h2>
-<h2> Order ID:<%= @order.id%></h2>
-<h3> Product ID:<%= @product.id%></h3>
-<h3> Product tax:<%= @product_tax%></h3>
+<h2>Your order information:</h2>
+<h3>Order id: <%= @order.id + 23423 %></h3>
+<h3>Quantity: <%= @order.quantity %></h3> 
+<h3>Product name: <%= @order.product.name %></h3>
+<h3>Quantity: <%= @order.quantity %></h3>
+<h3>Subtotal: <%= number_to_currency(@order.subtotal) %></h3>
+<h3>Tax: <%= number_to_currency(@order.tax) %></h3>
+<hr>
+<h3>Total: <%= number_to_currency(@order.total) %></h3>
 

@@ -27,14 +27,15 @@ class Product < ActiveRecord::Base
   end
 
   def self.get_discount_threshold
-  DISCOUNT_THRESHOLD
+   DISCOUNT_THRESHOLD
   end
+  
   def printable_categories
     names = []
     categories.each do |category|
-      names << category.name
+     names << category.name
     end
-    names.join(',')
+   names.join(',')
   end
 end
 
