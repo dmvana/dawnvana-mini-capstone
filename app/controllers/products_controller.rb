@@ -5,13 +5,17 @@ class ProductsController < ApplicationController
     if params[:sort] && params[:sort_order]
       @products = Product.order(params[:sort] => params[:sort_order])
     end  
+    
     if params[:discount]
       @products = Product.where("price < ?", 50)
     end
-    render :index
+    
+    
     if params[:category]
-      @products = Category.find_by(name: params[category]).products
+      @products = Category.find_by(name: params[:category]).products
     end
+    
+    
     sort_attribute = params[:sort]
     sort_order = params[:sort_order]
     if sort_attribute && sort_order

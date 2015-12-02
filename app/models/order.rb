@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
 belongs_to :user
-belongs_to :product
+belongs_to :carted_products
 end
 
 def product_tax

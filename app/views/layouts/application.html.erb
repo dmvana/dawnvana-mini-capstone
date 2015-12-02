@@ -31,7 +31,7 @@
             <li><a href="/products?sort=price&sort_order=asc">Sort by price (low to high)</a></li>
             <li><a href="/products?sort=price&sort_order=desc">Sort by price (high to low) </a></li>
             <li><a href="/products?discount=true"> Discount items</a></li>
-            <li><a href="/products?= Luxury">Luxury</a></li>
+            <li><a href="/products?category=Luxury">Luxury</a></li>
             <% Category.all.each do |category| %>
               <li><a href="/products?category=<%= category.name %>"><%= category.name %></a></li>
             <% end %>
