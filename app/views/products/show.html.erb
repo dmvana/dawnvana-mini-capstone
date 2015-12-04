@@ -19,6 +19,7 @@
         <% @product.images.each do |image_object| %>
           <img src="<%= image_object.path %>" alt="<%= @product.name %>" class="img-responsive">
         <% end %>
+        <% if current_user && current_user.admin
         <%= link_to "Edit this product", "/products/#{@product.id}/edit" %>
         <%= link_to "Delete this product", "/products/#{@product.id}", method: :delete %>
         <%= link_to "Back to all products", "/products" %> 
